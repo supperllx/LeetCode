@@ -6,11 +6,12 @@
 
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
-        p_node = head
-        new_head = None
-        while p_node:
-            p_node.next, p_node, new_head = new_head, p_node.next, p_node
-        return new_head
+        res = None
+        while head:
+            head_nxt = head.next
+            head.next = res
+            res = head
+            head = head_nxt
 
 # class Solution:
 #     def reverseList(self, head: ListNode) -> ListNode:
