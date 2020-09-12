@@ -22,3 +22,6 @@ if __name__ == "__main__":
     dq.appendleft(2)
     print(dq)
     print(len(dq))
+
+    f = lambda x=0, y=0: (x+y) /2
+    print(f())
