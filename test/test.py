@@ -25,3 +25,7 @@ if __name__ == "__main__":
 
     f = lambda x=0, y=0: (x+y) /2
     print(f())
+
+    array = [1,2,3,4,5]
+    for i,j in array:
+        print(i,j)
