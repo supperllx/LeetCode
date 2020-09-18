@@ -4,21 +4,25 @@
 #         self.val = x
 #         self.next = None
 
-class Solution:
-    def reverseList(self, head: ListNode) -> ListNode:
-        res = None
-        while head:
-            head_nxt = head.next
-            head.next = res
-            res = head
-            head = head_nxt
-
 # class Solution:
 #     def reverseList(self, head: ListNode) -> ListNode:
-#         if head == None or head.next == None:
-#             return head
-#         else:
-#             new_head = self.reverseList(head.next)
-#             head.next.next = head
-#             head.next = None
+#         new_head = None
+#         p = head
+#         while p:
+#             nxt = p.next
+#             p.next = new_head
+#             new_head = p
+#             p = nxt
 #         return new_head
+
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        if (head == None) or (head.next == None):
+            return head
+        else:
+            tail = head.next
+            nxt = self.reverseList(head.next)
+            tail.next = head
+            head.next = None
+            head = nxt
+            return head
