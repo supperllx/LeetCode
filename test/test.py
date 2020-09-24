@@ -58,3 +58,10 @@ if __name__ == "__main__":
 
     print(coin(50))
     print(coin_2(50))
+
+    dp = [[0 for i in range(7)] for j in range(3)]
+    for i in range(7):
+        dp[0][i] = 1
+    for j in range(3):
+        dp[j][0] = 1
+    print(dp)
