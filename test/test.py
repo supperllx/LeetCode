@@ -46,6 +46,25 @@ def coin_2(n:int):
         return res
     return func(n)
 
+def frog(l: list) -> bool:
+    dp = [False] * len(l)
+    dp[0] = True
+    for i in range(1, len(l)):
+        for j in range(0, i):
+            dp[i] = dp[i] or (dp[j] and j + l[j] >= i)
+            if dp[i] == True:   break
+    return dp[-1]
+
+def max_product_subarray(nums: list) -> list:
+    n = len(nums)
+    dp_max = [0 for _ in range(n)]
+    dp_min = [0 for _ in range(n)]
+    dp_max[0], dp_min[0] = nums[0], nums[0]
+    for i in range(1, n):
+        dp_max[i] = max(dp_min[i - 1] * nums[i], max(dp_max[i - 1] * nums[i], nums[i]))
+        dp_min[i] = min(dp_max[i - 1] * nums[i], min(dp_min[i - 1] * nums[i], nums[i]))
+    return max(dp_max)
+
 if __name__ == "__main__":
     # dq = collections.deque()
     # dq.append(5)
@@ -65,3 +84,6 @@ if __name__ == "__main__":
     for j in range(3):
         dp[j][0] = 1
     print(dp)
+
+    print(frog([2, 3, 1, 1, 4]))
+    print(frog([3,2,1,0,4]))
