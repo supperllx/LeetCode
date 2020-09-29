@@ -65,6 +65,7 @@ def max_product_subarray(nums: list) -> list:
         dp_min[i] = min(dp_max[i - 1] * nums[i], min(dp_min[i - 1] * nums[i], nums[i]))
     return max(dp_max)
 
+
 if __name__ == "__main__":
     # dq = collections.deque()
     # dq.append(5)
