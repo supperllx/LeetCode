@@ -65,6 +65,13 @@ def max_product_subarray(nums: list) -> list:
         dp_min[i] = min(dp_max[i - 1] * nums[i], min(dp_min[i - 1] * nums[i], nums[i]))
     return max(dp_max)
 
+def recursive_reduction(array, size):
+    if size == 1: return array[0]
+    else:
+        stride = size // 2
+        for i in range(stride):
+            array[i] += array[i + stride]
+        return recursive_reduction(array, stride)
 
 if __name__ == "__main__":
     # dq = collections.deque()
@@ -88,3 +95,6 @@ if __name__ == "__main__":
 
     print(frog([2, 3, 1, 1, 4]))
     print(frog([3,2,1,0,4]))
+
+    array = [1] * 4096
+    print(recursive_reduction(array, len(array)))
