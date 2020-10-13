@@ -1,4 +1,5 @@
 import collections
+import heapq
 
 def func(n):
     if n == 1:
@@ -98,3 +99,7 @@ if __name__ == "__main__":
 
     array = [1] * 4096
     print(recursive_reduction(array, len(array)))
+
+    cd = collections.Counter('abbc')
+    cp = collections.Counter('bbcq')
+    print(cd & cp)
