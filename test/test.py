@@ -102,4 +102,18 @@ if __name__ == "__main__":
 
     cd = collections.Counter('abbc')
     cp = collections.Counter('bbcq')
+
+    dd = collections.defaultdict(set)
+    dd[5].add(1)
+    print(dd[3])
     print(cd & cp)
+
+    dq = collections.deque()
+    dq += [1, 2, 3]
+    print(dq)
+
+    q = [(1, 100), (0, 120)]
+    print(sorted(q))
+
+    ct = collections.Counter({'a': -5, 'b': -3, 'c': -1})
+    print(ct.most_common())
