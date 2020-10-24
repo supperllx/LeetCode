@@ -74,6 +74,11 @@ def recursive_reduction(array, size):
             array[i] += array[i + stride]
         return recursive_reduction(array, stride)
 
+def test_arg(name, *args, **kwargs):
+    print(name)
+    print(args)
+    print(kwargs)
+
 if __name__ == "__main__":
     # dq = collections.deque()
     # dq.append(5)
@@ -117,3 +122,5 @@ if __name__ == "__main__":
 
     ct = collections.Counter({'a': -5, 'b': -3, 'c': -1})
     print(ct.most_common())
+
+    test_arg(1)
