@@ -124,3 +124,15 @@ if __name__ == "__main__":
     print(ct.most_common())
 
     test_arg(1)
+
+    dq = collections.deque()
+    dq.append((1,2))
+    print(type(dq.popleft()))
+
+    dd = collections.defaultdict(set)
+    dd[100] = [0]
+    dd[100].pop()
+    print(10 in dd)
+
+    arr = [[1, 2], [3, 4]]
+    for i, j in arr:    print(i, j)
