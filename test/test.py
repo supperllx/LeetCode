@@ -134,5 +134,15 @@ if __name__ == "__main__":
     dd[100].pop()
     print(10 in dd)
 
-    arr = [[1, 2], [3, 4]]
-    for i, j in arr:    print(i, j)
+    q = collections.defaultdict(int)
+    # q[100] = 0
+    print(100 in q)
+
+    path = ['a', 'b', 'c']
+    d = dict(enumerate(path))
+    print(d)
+    print(float('inf') + 1 > float('inf'))
+
+    print(path[:-0])
+    arr = [1, 2, 3]
+    print(tuple(arr))

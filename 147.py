@@ -27,27 +27,45 @@
 #                 pp = pp.next
 #         return pre.next
 
+# class Solution:
+#     def insertionSortList(self, head: ListNode) -> ListNode:
+#         dummy = ListNode(val = -float('inf'))
+#         p = head
+#         while p:
+#             p_nxt = p.next
+#             t = dummy
+#             while t:
+#                 # if t.next.val >= p.val or t.next == None:
+#                 #     t_nxt = t.next
+#                 #     t.next = p
+#                 #     p.next = t_nxt
+#                 #     break
+#                 # t = t.next
+#                 if t.next != None and t.next.val < p.val:
+#                     t = t.next
+#                 else:
+#                     t_nxt = t.next
+#                     t.next = p
+#                     p.next = t_nxt
+#                     break
+
+#             p = p_nxt
+#         return dummy.next
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
 class Solution:
     def insertionSortList(self, head: ListNode) -> ListNode:
-        dummy = ListNode(val = -float('inf'))
-        p = head
-        while p:
-            p_nxt = p.next
-            t = dummy
-            while t:
-                # if t.next.val >= p.val or t.next == None:
-                #     t_nxt = t.next
-                #     t.next = p
-                #     p.next = t_nxt
-                #     break
-                # t = t.next
-                if t.next != None and t.next.val < p.val:
-                    t = t.next
-                else:
-                    t_nxt = t.next
-                    t.next = p
-                    p.next = t_nxt
-                    break
-
-            p = p_nxt
-        return dummy.next
+        if head:
+            nxt = self.insertionSortList(head.next)
+            pre = ListNode(0)
+            pre.next = nxt
+            p = pre
+            while p.next and p.next.val < head.val:
+                p = p.next
+            p.next, head.next = head, p.next
+            return pre.next
