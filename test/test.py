@@ -146,3 +146,20 @@ if __name__ == "__main__":
     print(path[:-0])
     arr = [1, 2, 3]
     print(tuple(arr))
+
+    arr = [[] for _ in range(3)]
+    arr[0].append(1)
+    print(arr[1])
+    if arr[1]: print('yes')
+    else:   print('no')
+
+    ct = collections.Counter('aabcac')
+    print(ct.most_common())
+
+    for i in range(1, 1):
+        print(i)
+
+    if l:= []:
+        print('pass')
+    else:
+        print('no pass')
