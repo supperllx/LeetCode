@@ -159,7 +159,16 @@ if __name__ == "__main__":
     for i in range(1, 1):
         print(i)
 
-    if l:= []:
-        print('pass')
-    else:
-        print('no pass')
+    # if l:= []:
+    #     print('pass')
+    # else:
+    #     print('no pass')
+
+    arr = [1, 0, 0, 1]
+    res = int(''.join([str(i) for i in arr]), 2)
+
+    print(res)
+
+    hp = ['app', 'apple', 'a']
+    heapq.heapify(hp)
+    print(hp)
