@@ -105,70 +105,11 @@ if __name__ == "__main__":
     array = [1] * 4096
     print(recursive_reduction(array, len(array)))
 
-    cd = collections.Counter('abbc')
-    cp = collections.Counter('bbcq')
+    arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    heapq._heapify_max(arr)
+    print(arr)
+    print(heapq._heappop_max(arr))
 
-    dd = collections.defaultdict(set)
-    dd[5].add(1)
-    print(dd[3])
-    print(cd & cp)
-
-    dq = collections.deque()
-    dq += [1, 2, 3]
-    print(dq)
-
-    q = [(1, 100), (0, 120)]
-    print(sorted(q))
-
-    ct = collections.Counter({'a': -5, 'b': -3, 'c': -1})
-    print(ct.most_common())
-
-    test_arg(1)
-
-    dq = collections.deque()
-    dq.append((1,2))
-    print(type(dq.popleft()))
-
-    dd = collections.defaultdict(set)
-    dd[100] = [0]
-    dd[100].pop()
-    print(10 in dd)
-
-    q = collections.defaultdict(int)
-    # q[100] = 0
-    print(100 in q)
-
-    path = ['a', 'b', 'c']
-    d = dict(enumerate(path))
-    print(d)
-    print(float('inf') + 1 > float('inf'))
-
-    print(path[:-0])
-    arr = [1, 2, 3]
-    print(tuple(arr))
-
-    arr = [[] for _ in range(3)]
-    arr[0].append(1)
-    print(arr[1])
-    if arr[1]: print('yes')
-    else:   print('no')
-
-    ct = collections.Counter('aabcac')
-    print(ct.most_common())
-
-    for i in range(1, 1):
-        print(i)
-
-    # if l:= []:
-    #     print('pass')
-    # else:
-    #     print('no pass')
-
-    arr = [1, 0, 0, 1]
-    res = int(''.join([str(i) for i in arr]), 2)
-
-    print(res)
-
-    hp = ['app', 'apple', 'a']
-    heapq.heapify(hp)
-    print(hp)
+    n = 123
+    print(type(str(n)[0]))
+    print(int(str(n)))
