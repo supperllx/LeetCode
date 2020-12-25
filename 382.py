@@ -31,8 +31,8 @@ class Solution:
             count += 1
             if count <= self.capacity:  res.append(p.val)
             else:
-                r = random.randint(1, count)
-                if r <= self.capacity:  res[r - 1] = p.val
+                r = random.randint(0, count - 1)  # 0 <= r <= count - 1
+                if r < self.capacity:  res[r] = p.val
             p = p.next
         return res[0]
 

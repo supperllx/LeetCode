@@ -113,3 +113,9 @@ if __name__ == "__main__":
     n = 123
     print(type(str(n)[0]))
     print(int(str(n)))
+
+    ct = collections.Counter(["A", "A", "A", "B", "B", "B"])
+    print(ct.most_common(1))
+
+    mat = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    print([mat[i][0] for i in range(3)])
