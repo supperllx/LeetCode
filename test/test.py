@@ -1,6 +1,18 @@
 import collections
 import heapq
 
+class obj:
+    def __init__(self, name):
+        self.name = name
+    def __del__(self):
+        print('on deletion')
+
+def down_print(n):
+    if n <= 0: return 0
+    else:
+        print(n)
+        return down_print(n - 1)
+
 def func(n):
     if n == 1:
         return 1
@@ -122,4 +134,9 @@ if __name__ == "__main__":
 
     dd = collections.defaultdict(int)
     print(dd[5])
-    
+
+    ob = obj(2020)
+    # ob.__del__()
+    del ob
+
+    down_print(3)
