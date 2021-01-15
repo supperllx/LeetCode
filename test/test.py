@@ -13,6 +13,17 @@ def down_print(n):
         print(n)
         return down_print(n - 1)
 
+def q_sort(arr):
+    if not arr: return arr
+    else:
+        cur = arr[0]
+        left = []
+        right = []
+        for i in arr[1:]:
+            if i <= cur: left.append(i)
+            else: right.append(i)
+        return q_sort(left) + [cur] + q_sort(right)
+
 def func(n):
     if n == 1:
         return 1
@@ -140,3 +151,15 @@ if __name__ == "__main__":
     del ob
 
     down_print(3)
+    
+    print(q_sort([4, 3, 1, 2, 6]))
+    
+    arr = []
+    for i in arr:
+        print(i)
+
+    dq = collections.deque(maxlen=2)
+    dq.append(1)
+    dq.append(2)
+    dq.append(3)
+    print(dq)

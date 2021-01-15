@@ -6,27 +6,18 @@
 
 class Solution:
     def nextLargerNodes(self, head: ListNode) -> List[int]:
-        res = {}
+        res = []
         stack = []
+        d = {}
         p = head
         while p:
-            if len(stack) == 0:
-                stack.append(p)
-            else:
-                while len(stack) > 0:
-                    if p.val > stack[-1].val:
-                        res[stack.pop()] = p.val
-                    else:
-                        break
-                stack.append(p)
+            while stack and stack[-1].val < p.val:
+                d[stack.pop()] = p.val
+            stack.append(p)
             p = p.next
-        
         p = head
-        ans = []
         while p:
-            if p in res:
-                ans.append(res[p])
-            else:
-                ans.append(0)
+            res.append(d[p] if p in d else 0)
             p = p.next
-        return ans
+        return res
+
