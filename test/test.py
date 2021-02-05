@@ -1,5 +1,8 @@
 import collections
 import heapq
+import sortedcontainers
+import sortedcollections
+import bisect
 
 class obj:
     def __init__(self, name):
@@ -102,64 +105,37 @@ def test_arg(name, *args, **kwargs):
     print(args)
     print(kwargs)
 
+def total_prefix(s: str) -> int:
+    res = len(s)
+    def func(p, string):
+        print(string, s[p])
+        nonlocal res
+        if p >= len(s):
+            return
+        new_string = ''.join(string.split(s[p]))
+        if len(string) == len(new_string):
+            # print(string, new_string)
+            return
+        else:
+            print(string, new_string, (len(string) - len(new_string)))
+            res += (len(string) - len(new_string))
+            func(p + 1, new_string)
+    func(0, s)
+    return res
+
+
 if __name__ == "__main__":
-    # dq = collections.deque()
-    # dq.append(5)
-    # dq.appendleft(2)
-    # print(dq)
-    # print(len(dq))
-
-    # f = lambda x=0, y=0: (x+y) /2
-    # print(f())
-
-    print(coin(50))
-    print(coin_2(50))
-
-    dp = [[0 for i in range(7)] for j in range(3)]
-    for i in range(7):
-        dp[0][i] = 1
-    for j in range(3):
-        dp[j][0] = 1
-    print(dp)
-
-    print(frog([2, 3, 1, 1, 4]))
-    print(frog([3,2,1,0,4]))
-
-    array = [1] * 4096
-    print(recursive_reduction(array, len(array)))
-
-    arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    heapq._heapify_max(arr)
+    arr = [i + 1 for i in range(6)]
     print(arr)
-    print(heapq._heappop_max(arr))
+    # print(bisect.bisect_left(arr, 3))
+    print(bisect.bisect_left(arr, 6))
+    # print(arr)
 
-    n = 123
-    print(type(str(n)[0]))
-    print(int(str(n)))
+    nums = [1, 3, 2, 2, 3, 1]
+    print([(j, i) for i, j in collections.Counter(nums).most_common()])
 
-    ct = collections.Counter(["A", "A", "A", "B", "B", "B"])
-    print(ct.most_common(1))
-
-    mat = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    print([mat[i][0] for i in range(3)])
-
-    dd = collections.defaultdict(int)
-    print(dd[5])
-
-    ob = obj(2020)
-    # ob.__del__()
-    del ob
-
-    down_print(3)
+    arr = [[1,2,3], [4,5]]
+    for i, j in zip(*arr):
+        print(i, j)
     
-    print(q_sort([4, 3, 1, 2, 6]))
-    
-    arr = []
-    for i in arr:
-        print(i)
-
-    dq = collections.deque(maxlen=2)
-    dq.append(1)
-    dq.append(2)
-    dq.append(3)
-    print(dq)
+    print(total_prefix('abcabcd'))

@@ -10,14 +10,25 @@ class UnionFind:
         if (f1 := self.find(p1)) < (f2 := self.find(p2)):   self.f[f2] = f1
         elif f1 > f2:   self.f[f1] = f2
 
+# class Solution:
+#     def removeStones(self, stones: List[List[int]]) -> int:
+#         uf = UnionFind()
+#         n = len(stones)
+#         for i in range(n):
+#             for j in range(i+1, n):
+#                 if stones[i][0] == stones[j][0] or stones[i][1] == stones[j][1]:
+#                     uf.union(i, j)
+
+#         d = set()
+#         for i, s in enumerate(stones):
+#             d.add(uf.find(i))
+        
+#         return len(stones) - len(d)
+
 class Solution:
     def removeStones(self, stones: List[List[int]]) -> int:
         uf = UnionFind()
         n = len(stones)
-        for i in range(n):
-            for j in range(i+1, n):
-                if stones[i][0] == stones[j][0] or stones[i][1] == stones[j][1]:
-                    uf.union(i, j)
         
         dx = collections.defaultdict(list)
         dy = collections.defaultdict(list)
@@ -26,12 +37,14 @@ class Solution:
             dx[s[0]].append(i)
             dy[s[1]].append(i)
         
-        for samelist in dx.values():
+        for samelist in dx.values(): # all stones with same x
             for i in range(len(samelist)):
                 uf.union(samelist[0], samelist[i])
-        for samelist in dy.values():
+        for samelist in dy.values(): # all stones with same y
             for i in range(len(samelist)):
                 uf.union(samelist[0], samelist[i])
 
-        return n - len(set(uf.f.values()))
-        
+        d = set()
+        for i in range(n):  d.add(uf.find(i))
+        return n - len(d)
+
