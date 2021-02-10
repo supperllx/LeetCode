@@ -139,3 +139,8 @@ if __name__ == "__main__":
         print(i, j)
     
     print(total_prefix('abcabcd'))
+
+    dq = collections.deque(nums)
+    print(dq)
+    del dq[3]
+    print(dq)
