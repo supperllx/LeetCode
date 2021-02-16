@@ -144,3 +144,12 @@ if __name__ == "__main__":
     print(dq)
     del dq[3]
     print(dq)
+
+    count = 0
+    while count <= 5:
+        print('In while loop: ', count)
+        count += 1
+        if count == 3:
+            break
+    else:
+        print('More than 5')
