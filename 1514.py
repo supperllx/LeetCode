@@ -1,5 +1,5 @@
 class Solution:
-    def maxProbability(self, n: int, edges: List[List[int]], succProb: List[float], start: int, end: int) -> float:
+    def maxProbability(self, n: int, edges: List[List[int]], succProb: List[float], start: int, end: int) -> float: # dijkstra
         graph = collections.defaultdict(list)
         for i, (x, y) in enumerate(edges):
             graph[x].append((succProb[i], y))
