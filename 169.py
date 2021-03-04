@@ -1,5 +1,5 @@
 class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
+    def majorityElement(self, nums: List[int]) -> int: # Boyer–Moore majority vote algorithm
         major = None
         count = 0
         for i in nums:

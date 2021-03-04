@@ -153,3 +153,7 @@ if __name__ == "__main__":
             break
     else:
         print('More than 5')
+
+    arr = [1, 2, 3]
+    for x, y in arr:
+        print(x, y)

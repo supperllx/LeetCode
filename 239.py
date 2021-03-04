@@ -17,7 +17,7 @@
 #         return res[k-1: ]
 
 # class Solution:
-#     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+#     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]: # decrease deque
 #         n = len(nums)
 #         if n <= k:  return [max(nums)]
 #         dq = collections.deque() # stores the indexes of the window
