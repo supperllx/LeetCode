@@ -9,6 +9,8 @@ class obj:
         self.name = name
     def __del__(self):
         print('on deletion')
+    def __call__(self):
+        print('calling...')
 
 def down_print(n):
     if n <= 0: return 0
@@ -123,6 +125,22 @@ def total_prefix(s: str) -> int:
     func(0, s)
     return res
 
+def autoscale(arr):
+    i = 0
+    ins = 0
+    while i < len(arr):
+        if arr[i] < 25 and ins > 1:
+            ins = (ins + 1) // 2
+            i += 10
+        elif arr[i] > 60 and ins <= (10 ** 8):
+            ins *= 2
+            i += 10
+        else:
+            ins += 1
+            i += 1
+    return ins
+
+
 
 if __name__ == "__main__":
     arr = [i + 1 for i in range(6)]
@@ -154,6 +172,7 @@ if __name__ == "__main__":
     else:
         print('More than 5')
 
-    arr = [1, 2, 3]
-    for x, y in arr:
-        print(x, y)
+    # o = obj('LLX')
+    # o()
+
+    print(autoscale([25,23,1,2,3,4,5,6,7,8,9,10,76,80]))

@@ -1,6 +1,6 @@
 class Solution:
     def findNumOfValidWords(self, words: List[str], puzzles: List[str]) -> List[int]:
-        ct = collections.Counter(filter(lambda x: len(x) <= 7, map(frozenset, words)))
+        ct = collections.Counter(filter(lambda x: len(x) <= 7, map(frozenset, words))) # immutable set
         res = [0] * len(puzzles)
 
         for i, puz in enumerate(puzzles):
