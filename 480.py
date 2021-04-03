@@ -62,3 +62,19 @@ class Solution:
             bisect.insort(window, n_right)
             res.append(getMedian(window))
         return res
+
+# import sortedcontainers
+# class Solution:
+#     def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
+#         window = sortedcontainers.SortedList()
+#         res = []
+#         left, right = 0, 0
+#         getMedian = lambda arr: (arr[(len(arr) - 1) // 2] + arr[len(arr) // 2]) / 2
+#         while right < len(nums):
+#             window.add(nums[right])
+#             if right - left + 1 > k:
+#                 window.remove(nums[left])
+#                 left += 1
+#             res.append(getMedian(window))
+#             right += 1
+#         return res[k - 1:]
