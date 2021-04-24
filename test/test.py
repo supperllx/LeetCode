@@ -140,6 +140,17 @@ def autoscale(arr):
             i += 1
     return ins
 
+class test_obj:
+    def __new__(cls):
+        print("calling __new__()")
+        return super().__new__(cls)
+    def __init__(self):
+        print("calling __init__")
+        print(test_obj.mro())
+    def func(self, x: int):
+        print("int x is: ", x)
+    def func(self, x: str):
+        print("str x is: ", x)
 
 
 if __name__ == "__main__":
@@ -175,4 +186,7 @@ if __name__ == "__main__":
     # o = obj('LLX')
     # o()
 
-    print(autoscale([25,23,1,2,3,4,5,6,7,8,9,10,76,80]))
+    print(autoscale([25, 23, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 76, 80]))
+    
+    obj1 = test_obj()
+    obj1.func(5)
