@@ -5,6 +5,8 @@ import sortedcollections
 import bisect
 from typing import Callable
 
+# Change here for squash test -> add something -> add something
+
 class obj:
     def __init__(self, name):
         self.name = name
