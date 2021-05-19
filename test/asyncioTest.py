@@ -28,9 +28,24 @@ def fab(maxValue):
         a, b = b, a + b
         n += 1
 
+async def main():
+    print('main() start')
+    task = asyncio.create_task(foo('text'))
+    # await task
+    # await foo('text2')
+    await asyncio.sleep(1)
+    print('main() end')
+    await task
+
+async def foo(text):
+    await asyncio.sleep(2)
+    print(text)
+
 if __name__ == "__main__":
-    # wrap = f_wrapper(fab(5))
-    # print(next(wrap))
-    coros = [async_call(1), async_call(3)]
-    # print(asyncio.iscoroutinefunction(async_call))
-    asyncio.run(async_call(3))
+    # # wrap = f_wrapper(fab(5))
+    # # print(next(wrap))
+    # coros = [async_call(1), async_call(3)]
+    # # print(asyncio.iscoroutinefunction(async_call))
+    # asyncio.run(async_call(3))
+
+    asyncio.run(main())

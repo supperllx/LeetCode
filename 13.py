@@ -29,15 +29,31 @@
 #         if len(stack):  res += d[stack[-1]]
 #         return res
 
+# class Solution:
+#     def romanToInt(self, s: str) -> int:
+#         d = {'I': 1, 'V':5, 'X':10, 'L':50, 'C':100,'D':500, 'M':1000}
+#         res = 0
+#         stack = []
+#         for ch in s:
+#             if len(stack) == 0: stack.append(ch)
+#             elif d[stack[-1]] < d[ch]:  res -= d[stack.pop()]
+#             else:   res += d[stack.pop()]
+#             stack.append(ch)
+#         res += d[stack[-1]]
+#         return res
+
 class Solution:
     def romanToInt(self, s: str) -> int:
         d = {'I': 1, 'V':5, 'X':10, 'L':50, 'C':100,'D':500, 'M':1000}
         res = 0
         stack = []
         for ch in s:
-            if len(stack) == 0: stack.append(ch)
-            elif d[stack[-1]] < d[ch]:  res -= d[stack.pop()]
-            else:   res += d[stack.pop()]
+            if stack:
+                if d[stack[-1]] < d[ch]:
+                    res -= d[stack.pop()]
+                else:
+                    res += d[stack.pop()]
             stack.append(ch)
-        res += d[stack[-1]]
+        if stack:
+            res += d[stack.pop()]
         return res

@@ -3,6 +3,7 @@ import heapq
 import sortedcontainers
 import sortedcollections
 import bisect
+from typing import Callable
 
 class obj:
     def __init__(self, name):
@@ -140,6 +141,9 @@ def autoscale(arr):
             i += 1
     return ins
 
+def add(x: int = 1, y: int = 2) -> int:
+    return x + y
+
 class test_obj:
     def __new__(cls):
         print("calling __new__()")
@@ -190,3 +194,73 @@ if __name__ == "__main__":
     
     obj1 = test_obj()
     obj1.func(5)
+
+
+    arr = [1, 2, 3, 4, 1, 2, 7, 8, 4, 4, 4, 4]
+    def count(nums):
+        d = dict()
+        for i, n in enumerate(nums):
+            if n not in d:
+                d[n] = [i]
+            else:
+                d[n].append(i)
+        return d
+
+    print(count(arr))
+
+    dd = collections.defaultdict(list)
+    for i, n in enumerate(arr):
+        dd[n].append(i)
+    print(dd)
+
+    s = "My name is Leo"
+    # [[My, name, is], [name, is, leo]]
+    def ajnt(s, n=3):
+        l = s.split(" ")
+        r = []
+        for i in range(n - 1, len(l)):
+            a = []
+            for j in range(n-1, -1, -1):
+                a.append(l[i-j])
+            r.append(a)
+        return r
+
+    def ajnt2(s, n = 100):
+        arr = s.split(' ')
+        res = []
+        for i in range((max(0, len(arr) - n)) + 1):
+            res.append(arr[i: i + n])
+        return res
+
+    print(ajnt(s))
+    print(ajnt2(s))
+
+    a = '123456'
+    b = '321'
+    # c = '123777'
+    def sAdd(a, b):
+        res = ''
+        la, lb = len(a), len(b)
+        n = max(len(a), len(b)) # n = 6
+        flag = 0
+        for i in range(n): # n: 0 ~ xx - 1
+            ia, ib = la - 1 - i, lb - 1 - i
+            na = int(a[ia]) if ia >= 0 else 0
+            nb = int(b[ib]) if ib >= 0 else 0
+            flag, cur = divmod(na + nb + flag, 10)
+            res += (str(cur))
+        return res[::-1]
+    print(sAdd(a, b))
+
+    arr = [1,1,2,3,4,1,2,3,4,2,2,1,8]
+    print(list(set(arr)))
+
+    s = set()
+    s.add(6)
+    s.remove(6)
+
+    s = set([6])
+    s = {6}
+
+    hp = []
+    heapq.heapify(hp)
